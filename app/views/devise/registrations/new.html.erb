@@ -39,7 +39,7 @@
 
       <div class="field">
         <%= f.label :prefecture_code %><br>
-        <%= f.text_field :prefecture_code %>
+        <%= f.collection_select(:prefecture_code_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
       </div>
 
       <div class="field">
