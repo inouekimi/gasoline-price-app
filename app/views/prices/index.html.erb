@@ -1,8 +1,22 @@
 <header class="top-page-header">
-  <div class= "sign-in-button">
-    <%= link_to "ログイン", new_user_session_path, class: "sign-in" %>
-  </div>
-  <div class= "sign-up-button">
-    <%= link_to "新規登録", new_user_registration_path, class: "sign-up" %>
-  </div>
+  <p>Gasoline Price Search Application</p>
+  <h1 class="title">
+    <%= link_to 'GPSA', root_path, method: :GET %>
+  </h1>
+  <ul class='lists-right'>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+    <% else %>
+      <li><%= link_to "ログイン", new_user_session_path, class: "sign-in" %></li>
+      <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
+    <% end %>
+  </ul>
 </header>
+<body>
+  <h2>投稿する</h2>
+  <%= form_with model: @comment do |f| %>
+    <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+    <%= f.submit "SEND" %>
+  <% end %>
+</body>

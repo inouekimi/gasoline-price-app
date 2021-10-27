@@ -5,18 +5,18 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :nickname %><br />
-        <%= f.email_field :nickname %>
+        <%= f.label :nickname %>ニックネーム<br />
+        <%= f.text_field :nickname %>
       </div>
 
       <div class="field">
         <%= f.label :fullname %><br />
-        <%= f.email_field :fullname %>
+        <%= f.text_field :fullname %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email %>
+        <%= f.text_field :email %>
       </div>
 
       <div class="field">
