@@ -14,9 +14,18 @@
   </ul>
 </header>
 <body>
-  <h2>投稿する</h2>
-  <%= form_with model: @comment do |f| %>
-    <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-    <%= f.submit "SEND" %>
-  <% end %>
+<h2>投稿する</h2>
+<%= form_with url: "/prices", method: :post, local: true do |f| %>
+  <%= f.text_area :text, placeholder: "コメントする", rows: "3" %>
+  <%= f.submit "投稿" %>
+<% end %>
+<div class="comments">
+    <h4>＜コメント一覧＞</h4>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <%= comment.text %>
+      </p>
+    <% end %>
+</div>
 </body>

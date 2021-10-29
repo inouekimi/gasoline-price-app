@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
-  def create
-    Comment.create(comment_params)
+  def new
   end
-
-  private
-  def comment_params
-    params.require(:comment).permit(:text).merge(user_id: current_user.id)
+  def create
   end
 end
