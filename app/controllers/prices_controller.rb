@@ -13,6 +13,7 @@ class PricesController < ApplicationController
     end
   end
 
+
   private
   def comment_params
     params.permit(:text, :image).merge(user_id: current_user.id)

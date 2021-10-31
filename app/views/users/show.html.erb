@@ -1,0 +1,5 @@
+<%= @nickname.nickname %>
+<% @comments.each do |comment| %>
+  <%= comment.text %>
+  <%= image_tag comment.image.variant(resize: '300x300'), class: "comment-img" if comment.image.attached?%>
+<% end %>
