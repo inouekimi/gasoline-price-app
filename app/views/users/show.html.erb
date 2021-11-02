@@ -1,5 +1,14 @@
-<%= @nickname.nickname %>
+<%= render "shared/header" %>
+<p><%= @user.nickname %>さんの投稿一覧</p>
 <% @comments.each do |comment| %>
+  <ul class="more_list">
+    <li>
+      <%= link_to '削除', price_path(comment.id), method: :delete %>
+    </li>
+    <li>
+      <%= link_to '編集', edit_price_path(comment.id), method: :get %>
+    </li>
+  </ul>
   <%= comment.text %>
   <%= image_tag comment.image.variant(resize: '300x300'), class: "comment-img" if comment.image.attached?%>
 <% end %>

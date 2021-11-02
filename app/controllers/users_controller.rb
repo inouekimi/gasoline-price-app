@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @nickname = User.find(params[:id])
-    @comments = @nickname.prices
+    @user = User.find(params[:id])
+    @comments = @user.prices.all.order("created_at DESC")
   end
 end
 

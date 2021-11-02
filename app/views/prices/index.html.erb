@@ -1,21 +1,10 @@
 <header class="top-page-header">
-  <p>Gasoline Price Search Application</p>
-  <h1 class="title">
-    <%= link_to 'GPSA', root_path, method: :GET %>
-  </h1>
-  <ul class='lists-right'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-    <% else %>
-      <li><%= link_to "ログイン", new_user_session_path, class: "sign-in" %></li>
-      <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
-    <% end %>
-  </ul>
+  <%= render "shared/header" %>
 </header>
 <body>
   <h2>投稿する</h2>
-  <%= form_with url: "/prices", method: :post, local: true do |f| %>
+  <%= form_with url: "/prices", scope: :price, method: :post, local: true do |f| %>
+  <%# https://endoakak.hatenablog.com/entry/2020/08/29/200000 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         <span class="indispensable">必須</span>
