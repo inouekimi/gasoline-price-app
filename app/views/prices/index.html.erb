@@ -2,22 +2,67 @@
   <%= render "shared/header" %>
 </header>
 <body>
-  <h2>投稿する</h2>
-  <%= form_with url: "/prices", scope: :price, method: :post, local: true do |f| %>
-  <%# https://endoakak.hatenablog.com/entry/2020/08/29/200000 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        <span class="indispensable">必須</span>
+  <h2>gmap</h2>
+  <input id="address" type="textbox" value="Sydney, NSW">
+  <input type="button" value="検索" onclick="codeAddress()">
+  <div id='map'>
+  </div>
+
+  <style>
+  #map{
+    height: 400px;
+  }
+  </style>
+
+  <script>
+    let map
+    let geocoder
+
+    function initMap(){
+      geocoder = new google.maps.Geocoder()
+
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.66389, lng: 138.56833},
+      zoom: 8
+      });
+    }
+    function codeAddress(){
+      let inputAddress = document.getElementById('address').value;
+      geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4BzmlkZA6ta3AjwefIv1hKhVkzlWAQ5E&callback=initMap" async defer></script>
+
+  <% if user_signed_in? %>
+    <h2>投稿する</h2>
+    <%= form_with url: "/prices", scope: :price, method: :post, local: true do |f| %>
+      <div class="img-upload">
+        <div class="click-upload">
+          <%= f.file_field :image, id:"price-image" %>
+        </div>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"price-image" %>
-      </div>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "3" %>
+      <%= f.submit "投稿" %>
+    <% end %>
+  <% else %>
+    <div class="login">
+      <%= link_to "ログイン", new_user_session_path %>
+      <p>してコメントを投稿する</p>
     </div>
-    <%= f.text_area :text, placeholder: "コメントする", rows: "3" %>
-    <%= f.submit "投稿" %>
+    <div class="signup">
+      <%= link_to "新規登録", new_user_registration_path %>
+      <p>してコメントを投稿する</p>
+    </div>
   <% end %>
   <div class="comments">
       <h4>＜コメント一覧＞</h4>

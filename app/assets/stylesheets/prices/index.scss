@@ -2,10 +2,56 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+}
+
+.left-header p {
+  margin: 0;
+}
+
+.left-header h1 {
+  font-size: 80px;
+  letter-spacing: 20px;
+  font-family: 'Londrina Shadow', cursive;
+  margin: 0;
+  text-align: center;
+}
+
+.left-header a {
+  color: #ff3b00;
+}
+
+.right-header {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+}
+
 .comments {
   overflow: scroll;
   background-color: aqua;
   border: solid 1px #333;
   height: 300px;
   width: 200px;
+}
+
+.login {
+  display: flex;
+}
+
+.login p {
+  margin: 0;
+}
+
+.signup {
+  display: flex;
+}
+
+.signup p {
+  margin: 0;
 }
