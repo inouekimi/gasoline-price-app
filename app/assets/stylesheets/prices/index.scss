@@ -8,6 +8,7 @@ ul {
 
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .left-header p {
@@ -24,12 +25,6 @@ ul {
 
 .left-header a {
   color: #ff3b00;
-}
-
-.right-header {
-  position: fixed;
-  top: 20px;
-  right: 50px;
 }
 
 .comments {
