@@ -41,7 +41,7 @@
       });
     }
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GAS_STATION_MAP_KEY']%>&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap" async defer></script>
 
   <% if user_signed_in? %>
     <h2>投稿する</h2>
