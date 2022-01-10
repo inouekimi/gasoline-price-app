@@ -1,7 +1,29 @@
+<div class="top-image">
+  <div class="image1 box fadeUp"></div>
+  <div class="image2 box fadeUp"></div>
+  <div class="image3 box fadeUp"></div>
+  <div class="image4 box fadeUp"></div>
+  <div class="image5 box fadeUp"></div>
+  <div class="image6 box fadeUp"></div>
+  <div class="image7 box fadeUp"></div>
+</div>
+
 <header class="top-page-header">
   <%= render "shared/header" %>
 </header>
-<body>
+
+<div class="swiper-container">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide1"></div>
+      <div class="swiper-slide slide2"></div>
+      <div class="swiper-slide slide3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<div class="map">
   <h2>gmap</h2>
   <input id="address" type="textbox" value="Sydney, NSW">
   <input type="button" value="検索" onclick="codeAddress()">
@@ -42,7 +64,9 @@
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap" async defer></script>
+</div>
 
+<div class="text">
   <% if user_signed_in? %>
     <h2>投稿する</h2>
     <%= form_with url: "/prices", scope: :price, method: :post, local: true do |f| %>
@@ -74,4 +98,5 @@
         <%= image_tag comment.image.variant(resize: '100x100'), class: 'price-image' if comment.image.attached? %>
       <% end %>
   </div>
-</body>
+</div>
+

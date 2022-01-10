@@ -1,9 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
 }
 
 ul {
   list-style: none;
+}
+
+body {
+  margin: 0;
+}
+
+.top-image {
+  width: 100%;
+  height: 650px;
+  position: relative;
+}
+
+.box {
+  opacity: 0;
+}
+
+.fadeUp {
+  animation-name:fadeUpAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+  }
+  @keyframes fadeUpAnime{
+    from {
+      opacity: 0;
+    transform: translateY(100px);
+    }
+  
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  
+
+.image1,.image2,.image3,.image4,.image5,.image6,.image7 {
+  height: 200px;
+  width: 300px;
+  background-size: cover;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  position: absolute;
+  background-color: white;
+}
+
+.image1 {
+  background-image: image-url('fiat-gfe5a1b1eb_1280.png');
+  animation-delay: 0.2s;
+  top: 10vh;
+  left: 10vw;
+  height: 200px;
+  width: 370px;
+}
+
+.image2 {
+  background-image: image-url('pistol-g3ec7b80eb_1280.png');
+  animation-delay: 0.5s;
+  top: 50vh;
+  left: 70vw;
+}
+
+.image3 {
+  background-image: image-url('fuel-meter-gcfba972ab_1280.png');
+  animation-delay: 0.8s;
+  top: 60vh;
+  left: 5vw;
+}
+
+.image4 {
+  background-image: image-url('growth-gd9745af3b_1920.png');
+  animation-delay: 1.1s;
+  top: 5vh;
+  left: 75vw;
+}
+
+.image5 {
+  background-image: image-url('clock-g7b6d3e506_1280.png');
+  animation-delay: 1.4s;
+  top: 30vh;
+  left: 25vw;
+  height: 220px;
+  width: 220px;
+}
+
+.image6 {
+  background-image: image-url('map-g0e653db94_1280.png');
+  animation-delay: 1.7s;
+  top: 15vh;
+  left: 50vw;
+  width: 300px;
+  height: 150px;
+}
+
+.image7 {
+  background-image: image-url('money-gb99d6dd9a_1280.png');
+  animation-delay: 2.5s;
+  top: 40vh;
+  left: 37vw;
+  height: 300px;
+  width: 330px;
 }
 
 .header {
@@ -49,4 +153,24 @@ ul {
 
 .signup p {
   margin: 0;
+}
+
+.swiper {
+  height: 100vh;
+  width: 100%;
+}
+
+.swiper-slide.slide1 {
+  background-image: image-url('car-g5964b596f_1920.jpg');
+  background-size: cover;
+}
+
+.swiper-slide.slide2 {
+  background-image: image-url('car-ga480105f4_1920.jpg');
+  background-size: cover;
+}
+
+.swiper-slide.slide3 {
+  background-image: image-url('dashboard-ga3b1344ac_1920.jpg');
+  background-size: cover;
 }
